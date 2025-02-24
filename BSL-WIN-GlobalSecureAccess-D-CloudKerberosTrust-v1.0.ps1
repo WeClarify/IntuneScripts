@@ -28,8 +28,7 @@
 # Define the registry path and values
 $RegistryPath = "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters"
 $RegistryValues = @{
-    "FarKdcTimeout"   = 1
-    "SpnCacheTimeout" = 1
+    "FarKdcTimeout"   = 0
 }
 
 try {
