@@ -12,6 +12,22 @@
 # - **'FileVersion'**: This checks if a specific file exists and whether its version matches the expected version. You need to specify the file path with `$FilePath` and the expected version with `$FileVersionExpected`.
 # - **'MSIProductCode'**: This checks if an MSI package is installed using its product code. You need to specify the product code with `$MSIProductCode`.
 #
+# Example Usage:
+# - **RegKey Example**: Detects if the registry key "HKLM:\SOFTWARE\MySoftware" exists and its value is "Enabled".
+# - **File Example**: Detects if the file "C:\Program Files\MySoftware\MyApp.exe" exists.
+# - **FileVersion Example**: Detects if "C:\Program Files\MySoftware\MyApp.exe" exists and has the version "1.0.0.0". You can use this command to read the version: 
+#   ```powershell
+#
+#   [System.Diagnostics.FileVersionInfo]::GetVersionInfo("$ProgramPath\$ProgramFile").FileVersion
+#
+#   ```
+# - **MSIProductCode Example**: Detects if a product with a specific MSI product code is installed. You can use this command to read the MSI product code (after install)
+#
+#   ```powershell
+#   $Installer = New-Object -ComObject WindowsInstaller.Installer; $InstallerProducts = $Installer.ProductsEx("", "", 7); $InstalledProducts = ForEach($Product in $InstallerProducts){[PSCustomObject]@{ProductCode = $Product.ProductCode(); LocalPackage = $Product.InstallProperty("LocalPackage"); VersionString = $Product.InstallProperty("VersionString"); ProductPath = $Product.InstallProperty("ProductName")}} $InstalledProducts
+#   ```
+#
+#
 # The result of the check is written to the standard output (STDOUT). Intune will read this to determine the detection status:
 # - If the detection succeeds, the script will exit with code 0 and output "Detection successful".
 # - If the detection fails, the script will exit with code 1 and output "Detection failed".
