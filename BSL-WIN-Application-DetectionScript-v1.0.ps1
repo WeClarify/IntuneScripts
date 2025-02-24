@@ -18,7 +18,7 @@
 # - **FileVersion Example**: Detects if "C:\Program Files\MySoftware\MyApp.exe" exists and has the version "1.0.0.0". You can use this command to read the version: 
 #   ```powershell
 #
-#   [System.Diagnostics.FileVersionInfo]::GetVersionInfo("$ProgramPath\$ProgramFile").FileVersion
+#   [System.Diagnostics.FileVersionInfo]::GetVersionInfo("C:\Program Files\MySoftware\MyApp.exe").FileVersion
 #
 #   ```
 # - **MSIProductCode Example**: Detects if a product with a specific MSI product code is installed. You can use this command to read the MSI product code (after install)
