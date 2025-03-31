@@ -5,6 +5,7 @@
 # Purpose: This change hides the Single Sign-On (SSO) prompt, as described in the following blog:
 # https://techcommunity.microsoft.com/blog/windows-itpro-blog/upcoming-changes-to-windows-single-sign-on/4008151
 # 
+#
 # Configuration for Microsoft Intune:
 # - Run this script using the logged on credentials: No
 # - Enforce script signature check: No
