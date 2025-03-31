@@ -1,3 +1,17 @@
+# This script modifies ownership and permissions for the "IntegratedServicesRegionPolicySet.json" file during the OOBE process 
+# in Windows Autopilot. It ensures that the Administrators group has full access to the file and updates its JSON content 
+# to remove "NL" from the "disabled" regions under a specific policy GUID.
+#
+# Purpose: This change hides the Single Sign-On (SSO) prompt, as described in the following blog:
+# https://techcommunity.microsoft.com/blog/windows-itpro-blog/upcoming-changes-to-windows-single-sign-on/4008151
+# 
+# Configuration for Microsoft Intune:
+# - Run this script using the logged on credentials: No
+# - Enforce script signature check: No
+# - Run script in 64 bit PowerShell Host: Yes
+# www.mikevandenbrandt.nl
+#
+
 # File path
 $filePath = "C:\Windows\System32\IntegratedServicesRegionPolicySet.json"
 
